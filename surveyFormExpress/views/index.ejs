@@ -1,0 +1,48 @@
+<!doctype html>
+
+ <html lang="en"> 
+    <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <title>Survey Form</title>
+    </head>
+
+    <body>
+        <div class="container">
+        <br>
+        <h1>Please Take our Dojo Survey</h1>
+        <form action='/results' method= 'post'class="form-horizontal">
+            <div class="group-form">
+                <strong>Your Name: </strong><input type='text' name='name'>
+            </div>
+            <br>
+            <div class="group-form">
+                <strong>Dojo Location: </strong><select name='location'>
+                    <option value='select'>select</option>
+                    <option value='Washington, DC'>Washington, DC</option>
+                    <option value='Seattle'>Seattle</option>
+                    <option value='Bay Area'>Bay Area</option>
+                </select>
+            </div>
+            <br>
+            <div class="group-form">
+                <strong>Favorite Language: </strong><select name='language'>
+                    <option value='select'>select</option>
+                    <option value='Python'>Python</option>
+                    <option value='Ruby'>Ruby</option>
+                    <option value='Java'>Java</option> 
+                </select>
+            </div>
+            <br>
+            <div class="group-form">
+                <strong>Comments: </strong><input type='text' name='comments'>
+            </div>
+            <br>
+            <div class="group-form">
+                <input type='submit' value='Submit' class="btn-sm">
+            </div>
+        </form>
+    </div>
+    </body>
+</html>
