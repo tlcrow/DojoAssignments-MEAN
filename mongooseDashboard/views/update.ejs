@@ -1,0 +1,27 @@
+<!doctype html>
+
+ <html lang="en"> 
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+        <title>MongooseDashboard</title>
+    </head>
+
+    <body>
+        <div class="container text-center">
+            <br>
+        <h1>Update <%= mongoose.name %></h1>
+        <form action='/mongooses/<%= mongoose._id %>' method='post'>
+            <p><strong>Name: </strong><input type='text' name='name' value='<%= mongoose.name %>'></p>
+            <p><strong>Color: </strong><input type='text' name='color' value='<%= mongoose.color %>'></p>
+            <p><strong>Personality: </strong><input type='text' name='personality' value='<%= mongoose.personality %>'></p>
+            <p><strong>Location: </strong><input type='text' name='location' value='<%= mongoose.location %>'></p>
+            <input type='submit' value='Update Mongoose' class="btn-sm">
+        </form>
+        <br>
+        <strong><a href="/">Return to All Mongooses</a>
+        | <a href="/mongooses/<%= mongoose._id %>">Back to Mongoose</a></strong>
+        </div>
+    </body>
+</html>

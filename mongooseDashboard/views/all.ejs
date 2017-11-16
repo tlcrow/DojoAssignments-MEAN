@@ -1,0 +1,31 @@
+<!doctype html>
+
+ <html lang="en"> 
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+        <title>MongooseDashboard</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <br>
+            <div class="text-center">
+                <h1>Here are all the Mongooses!</h1>
+                <a href="/mongooses/new">Create a Mongoose</a>
+            </div>
+            
+            <% for (var i in mongooses) {%>
+                <br>
+                <h4>Name: <a href="/mongooses/<%= mongooses[i]._id %>"><%= mongooses[i].name %></a></h4>
+                <p><strong>Color: </strong><%= mongooses[i].color %></p>
+                <p><strong>Personality: </strong><%= mongooses[i].personality %></p>
+                <p><strong>Location: </strong><%= mongooses[i].location %></p>
+                <strong><a href="/mongooses/destroy/<%= mongooses[i]._id %>">Delete</a></strong>
+                <p>______________</p>
+            <%}%>
+    
+        </div>
+    </body>
+</html>
