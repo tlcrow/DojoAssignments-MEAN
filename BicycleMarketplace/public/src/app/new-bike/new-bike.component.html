@@ -1,0 +1,48 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container text-center">
+      <h3>Create Listing</h3>
+      <form (submit)="onSubmit()"  #bikeForm=ngForm>
+        <label for="title"><strong>Title</strong></label>
+            <input required
+              type="text"
+              id="title"
+              name="title"
+              [(ngModel)]= "bike.title"
+              #bike_title="ngModel">
+          <br>
+        <label for="description"><strong>Description</strong></label>
+          <input required
+            type="text"
+            id="description"
+            name="description"
+            maxlength=200
+            [(ngModel)]= "bike.description"
+             #bike_description="ngModel">
+          <br>
+        <label for="price"><strong>Price</strong></label>
+          <input required
+            type="number"
+            id="price"
+            name="price"
+            [(ngModel)]= "bike.price"
+             #bike_price="ngModel">
+        <br>
+        <label for="location"><strong>Location</strong></label>
+          <input required
+            type="text"
+            id="location"
+            name="location"
+            [(ngModel)]= "bike.location"
+             #bike_location="ngModel">
+          <br>
+        <button [disabled]= "bikeForm.invalid" type="submit" class="btn-sm">Create</button>
+        <div *ngFor="let error of errors">
+            <font color="red">{{error}}</font>
+        </div>
+      </form>
+    </div>
+</body>
