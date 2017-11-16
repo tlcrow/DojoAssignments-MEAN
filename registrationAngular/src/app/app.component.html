@@ -1,0 +1,135 @@
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container">
+    <br>
+    <h1>Registration</h1>
+    <form #reg="ngForm" (submit)="onSubmit()">
+      <strong>First Name: </strong><input 
+        name="fname"
+        type="text"
+        required
+        minlength=1
+        [(ngModel)]="user.fname"
+        #fname="ngModel">
+      <br>
+      <div *ngIf="user.fname.length < 1">
+        <font color="red">First Name can not be empty</font>
+      </div>
+      <br>
+      <strong>Last Name: </strong><input 
+        name="lname"
+        type="text"
+        required
+        minlength=1
+        [(ngModel)]="user.lname"
+        #lname="ngModel">
+      <br>
+      <div *ngIf="user.lname.length < 1">
+          <font color="red">Last Name can not be empty</font></div>
+      <br>
+      <strong>Email: </strong><input 
+        name="email"
+        type="text"
+        required
+        minlength=1
+        [(ngModel)]="user.email"
+        #email="ngModel">
+      <br>
+      <div *ngIf="user.email.length < 1">
+          <font color="red">Email can not be empty</font></div>
+      <div *ngIf="email.errors && email.errors.email">
+          <font color="red">Invalid Email</font></div>
+      <br>
+      <strong>Password: </strong><input 
+        name="password"
+        type="text"
+        required
+        minlength=1
+        [(ngModel)]="user.password"
+        #password="ngModel">
+      <br>
+      <div *ngIf="user.password.length < 1">
+          <font color="red">Password can not be empty</font></div>
+      <br>
+      <strong>Password Confirmation: </strong><input 
+        name="password_confirmation"
+        type="text"
+        required
+        minlength=1
+        [(ngModel)]="user.password_confirmation"
+        #password_confirmation="ngModel">
+      <br>
+      <div *ngIf="user.password_confirmation.length < 1">
+          <font color="red">First Name can not be empty</font></div>
+      <div *ngIf="user.password_confirmation != user.password">
+          <font color="red">Password and password confirmation do not match</font></div>
+      <br>
+      <!-- <strong>Street Address:</strong><input 
+        name="street"
+        type="text"
+        required
+        minlength=1
+        [(ngModel)]="user.street"
+        #street="ngModel">
+      <br>
+      <div *ngIf="user.street.length < 1">Street address can not be empty</div>
+      <br>
+      <strong>Unit/Apt #:</strong><input 
+        name="unit"
+        type="text"
+        minlength=1
+        [(ngModel)]="user.unit"
+        #unit="ngModel">
+      <br>
+      <br>
+      <strong>City:</strong><input 
+        name="city"
+        type="text"
+        minlength=1
+        [(ngModel)]="user.city"
+        #city="ngModel">
+      <br>
+      <div *ngIf="user.city.length < 1">City can not be empty</div>
+      <br>
+      <strong>State:</strong>
+        <select
+        name="state"
+        maxlength="2"
+        [(ngModel)]="user.state"
+        #state="ngModel">
+          <option *ngFor="let state of stateList">
+            {{ state }}
+          </option>
+        </select>
+      <br>
+      <div *ngIf="user.state.length > 3">Must chose a state</div>
+      <br>
+      <strong>Are you lucky?</strong>
+      <label>
+      <input 
+        name="lucky"
+        type="radio"
+        value=false,
+        [(ngModel)]="user.lucky">
+        No
+      <input 
+        name="lucky"
+        type="radio"
+        value=true
+        [(ngModel)]="user.lucky">
+        Yes
+      </label>
+      <br>
+      <div *ngIf="user.lucky != null">Are you lucky?</div>
+      <br> -->
+      <button type="submit" [disabled]="reg.invalid" class="btn-sm">
+        Register
+      </button>
+    </form>
+    <br>
+  </div>
+</body>
+
