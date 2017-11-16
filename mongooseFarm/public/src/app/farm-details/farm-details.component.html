@@ -1,0 +1,25 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container">
+    <br>
+    <p><a href= "" (click)="goLogout()">Logout</a> | 
+    <a [routerLink]="['/farms']">Home</a> | <a [routerLink]="['/farms']">Go Back to Farms</a></p>
+    <div class="text-center">
+      <h1>{{farm.name}}</h1>
+      <h5>{{farm.description}}</h5>
+    </div>
+    <h3>Mongooses at this Farm:</h3>
+    <div *ngFor="let mongoose of farm._mongoose">
+
+      <p><strong>Mongoose: </strong>{{mongoose.name}}</p>
+      <p><strong>Age: </strong>{{mongoose.age}}</p>
+      <p><strong>Likes: </strong>{{mongoose.likes}}</p>
+      <button (click)="onLike(mongoose._id)">Like!</button>
+      <button (click)="delete(mongoose._id)">Adopt!</button>
+      <p>_________________</p>
+    </div>
+  </div>
+</body>

@@ -1,0 +1,40 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container">
+    <br>
+    <p><a href= "" (click)="goLogout()">Logout</a> | 
+    <a [routerLink]="['/farms']">Home</a></p>
+    <h3>{{farm.name}}</h3>
+    <h5>{{farm.description}}</h5>
+    <div class="text-center">
+      <h1>New Mongoose</h1>
+      <form (submit)="onSubmit()" #mongooseForm=ngForm>
+        <label for="name">Mongoose Name:</label>
+          <input required
+              [(ngModel)]="mongoose.name"
+              #mongoose_name="ngModel"
+              type="text"
+              id="name"
+              name="name"
+              minlength="2">
+              
+        <br>
+        <label for="age">Age (Optional):</label>
+          <input  [(ngModel)]="mongoose.age"
+              #mongoose_age="ngModel"
+              type="text"
+              id="age"
+              name="age">
+        <br>
+        <button [disabled]="mongooseForm.invalid" type="submit" class="btn-sm">Sponsor</button>
+        <a [routerLink]="['/farms']">Cancel</a>
+        <div *ngIf="mongoose_name.errors">
+            <font color="red">Name is required</font>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
